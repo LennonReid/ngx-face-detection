@@ -108,6 +108,37 @@
           }
         }
       }
+    },
+    "face-detection": {
+      "projectType": "library",
+      "root": "projects/face-detection",
+      "sourceRoot": "projects/face-detection/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/face-detection/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/face-detection/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/face-detection/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/face-detection/src/test.ts",
+            "tsConfig": "projects/face-detection/tsconfig.spec.json",
+            "karmaConfig": "projects/face-detection/karma.conf.js"
+          }
+        }
+      }
     }
   },
   "defaultProject": "ngx-face-detection",
