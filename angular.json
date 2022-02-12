@@ -1,9 +1,12 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": false
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ngx-face-camera": {
+    "ngx-face-detection": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ngx-face-camera",
+            "outputPath": "dist/ngx-face-detection",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -72,10 +75,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "ngx-face-camera:build:production"
+              "browserTarget": "ngx-face-detection:build:production"
             },
             "development": {
-              "browserTarget": "ngx-face-camera:build:development"
+              "browserTarget": "ngx-face-detection:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +86,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ngx-face-camera:build"
+            "browserTarget": "ngx-face-detection:build"
           }
         },
         "test": {
@@ -107,5 +110,8 @@
       }
     }
   },
-  "defaultProject": "ngx-face-camera"
+  "defaultProject": "ngx-face-detection",
+  "cli": {
+    "packageManager": "yarn"
+  }
 }

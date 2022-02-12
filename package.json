@@ -1,5 +1,5 @@
 {
-  "name": "ngx-face-camera",
+  "name": "ngx-face-detection",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
