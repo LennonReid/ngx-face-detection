@@ -18,6 +18,10 @@
     "@angular/platform-browser": "~13.1.0",
     "@angular/platform-browser-dynamic": "~13.1.0",
     "@angular/router": "~13.1.0",
+    "@types/offscreencanvas": "^2019.6.4",
+    "@vladmandic/human": "^2.6.2",
+    "ismobilejs": "^1.1.1",
+    "mathjs": "^10.1.1",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

@@ -1,0 +1,58 @@
+:host {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+h3 {
+  z-index: 1001;
+  white-space: pre-line;
+}
+
+:host(.video-loaded) {
+  video {
+    visibility: visible;
+  }
+}
+
+.video {
+  transform: scaleX(-1);
+  width: 100%;
+  height: 100%;
+}
+
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+canvas {
+  position: absolute;
+  pointer-events: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.dev {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff, 0px 2px 2px rgba(0, 0, 0, 0.6);
+}
+
+:host(.debug) {
+  > .photo-canvas {
+    display: block;
+  }
+}
+
+.opacity-hidden {
+  opacity: 0;
+}

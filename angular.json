@@ -31,7 +31,22 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "human.{js,js.map}",
+                "input": "node_modules/@vladmandic/human/dist",
+                "output": "./human"
+              },
+              {
+                "glob": "*.{bin,json}",
+                "input": "node_modules/@vladmandic/human/models",
+                "output": "./human/models"
+              },
+              {
+                "glob": "*.wasm",
+                "input": "node_modules/@vladmandic/human/assets",
+                "output": "./human/assets"
+              }
             ],
             "styles": [
               "src/styles.scss"

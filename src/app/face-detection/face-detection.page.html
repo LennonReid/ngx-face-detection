@@ -1,0 +1,20 @@
+<div class="dev">
+  <button (click)="preload()">preload sources</button>
+
+  <button (click)="takePhoto()">take a photo</button>
+  <button (click)="takeBetterPhoto()">take a better photo</button>
+  <button (click)="livenessArrayTakeBetterPhoto('facingCamera')">facingCamera</button>
+  <button (click)="livenessArrayTakeBetterPhoto('facingLeft')">facingLeft</button>
+  <button (click)="livenessArrayTakeBetterPhoto('facingRight')">facingRight</button>
+  <button (click)="livenessArrayTakeBetterPhoto('headUp')">headUp</button>
+  <button (click)="livenessArrayTakeBetterPhoto('headDown')">headDown</button>
+  <button (click)="livenessArrayTakeBetterPhoto('mouth')">openMouth</button>
+  <button (click)="livenessArrayTakeBetterPhoto('blink')">blink</button>
+  <button (click)="livenessArrayTakeBetterPhoto('shake')">shake</button>
+
+  <div class="images">
+    <img [src]="photo" />
+    <img [src]="rectPhoto" />
+  </div>
+</div>
+<ngx-face-detection (noAvailableStream)="noAvailableStream($event)" [stream]="stream" [bioassay]="live" [iris]="iris" [debug]="debug"></ngx-face-detection>

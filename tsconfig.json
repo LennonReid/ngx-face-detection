@@ -7,7 +7,7 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "paths": {
-      "face-detection": [
+      "ngx-face-detection": [
         "dist/face-detection/face-detection",
         "dist/face-detection"
       ]

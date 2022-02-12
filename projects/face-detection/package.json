@@ -1,11 +1,12 @@
 {
-  "name": "face-detection",
+  "name": "ngx-face-detection",
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^13.2.0",
     "@angular/core": "^13.2.0"
   },
   "dependencies": {
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.0",
+    "@vladmandic/human": "^2.6.2"
   }
 }
