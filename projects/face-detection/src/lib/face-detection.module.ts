@@ -15,7 +15,9 @@ import { IFaceDetectionOptions, NGX_FACE_DETECTION } from './face-detection.inte
   ]
 })
 export class FaceDetectionModule {
-  static forRoot(opts?: IFaceDetectionOptions): ModuleWithProviders<any> {
+  // https://stackoverflow.com/questions/69321466/angular-workspace-monorepo-forroot-giving-me-errors-a-value-for-forroot-can
+  // change the interface any to FaceDetectionModule
+  static forRoot(opts?: IFaceDetectionOptions): ModuleWithProviders<FaceDetectionModule> {
     return {
       ngModule: FaceDetectionModule,
       providers: [{ provide: NGX_FACE_DETECTION, useValue: opts }]

@@ -1,12 +1,36 @@
 {
   "name": "ngx-face-detection",
-  "version": "0.0.1",
+  "version": "0.0.5",
   "peerDependencies": {
     "@angular/common": "^13.2.0",
-    "@angular/core": "^13.2.0"
+    "@angular/core": "^13.2.0",
+    "@vladmandic/human": "^2.6.2",
+    "ismobilejs": "^1.1.1",
+    "mathjs": "^10.1.1"
   },
   "dependencies": {
-    "tslib": "^2.3.0",
-    "@vladmandic/human": "^2.6.2"
-  }
+    "tslib": "^2.3.0"
+  },
+  "description": "This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.0.",
+  "main": "karma.conf.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lenonMax/ngx-face-detection.git"
+  },
+  "keywords": [
+    "face-detection",
+    "face-recognition",
+    "faceid",
+    "human-library",
+    "tensorflow"
+  ],
+  "author": "lenonMax",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lenonMax/ngx-face-detection/issues"
+  },
+  "homepage": "https://github.com/lenonMax/ngx-face-detection#readme"
 }

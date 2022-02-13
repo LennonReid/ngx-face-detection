@@ -12,3 +12,4 @@ export { getNeedVideoWidth } from './lib/human-helper';
 export { createHuman, IHuman } from './lib/human-helper';
 export { getUserMedia } from './lib/get-user-media';
 export { groupFace } from './lib/takephoto.util';
+export { isMobile } from './lib/is-mobile';
