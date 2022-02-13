@@ -1,17 +1,17 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {FaceDetectionPage} from "./face-detection/face-detection.page";
 
 const routes: Routes = [
-  { path: '', redirectTo: 'face-detection', pathMatch: 'full' },
   {
-    path: 'face-detection',
-    loadChildren: () => import('./face-detection/face-detection.module').then(_ => _.FaceDetectionPageModule)
-  },
-  { path: '**', redirectTo: 'face-detection', pathMatch: 'full' }
+    path: '',
+    component: FaceDetectionPage
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule {
+}
