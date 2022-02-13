@@ -9,7 +9,9 @@ export interface IHumanConfig {
 
 // todo: wasmPlatformFetch not exist in Config,later remove any
 export const getConfig = (opts?: IHumanConfig): Config | any => {
+  console.log('opts?.resourcesUrl',opts?.resourcesUrl);
   const resourcesUrl = opts?.resourcesUrl ? opts?.resourcesUrl : '/';
+  console.log('resourcesUrl',resourcesUrl);
   const live = opts?.live ? opts?.live : false;
   const iris = opts?.iris ? opts?.iris : false;
   const debug = opts?.debug ? opts?.debug : false;
