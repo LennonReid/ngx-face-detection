@@ -27,7 +27,6 @@ export class FaceDetectionService {
     iris = live && iris;
     const cacheKey = `${live}|${iris}`;
     if (!this.cachePromiseMap.has(cacheKey)) {
-      console.log(this.options.resourcesUrl);
       const config = getConfig({
         resourcesUrl: this.options.resourcesUrl,
         ...options

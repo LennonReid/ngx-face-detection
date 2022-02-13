@@ -9,7 +9,7 @@ const routes: Routes = [
     path: '',
     component: FaceDetectionPage
   },
-  { path: '**', redirectTo: '404.html', pathMatch: 'full' }
+  { path: '**', redirectTo: '/ngx-face-detection', pathMatch: 'full' }
 ];
 
 @NgModule({
