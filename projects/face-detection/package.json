@@ -1,6 +1,6 @@
 {
   "name": "ngx-face-detection",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "peerDependencies": {
     "@angular/common": "^13.2.0",
     "@angular/core": "^13.2.0",
