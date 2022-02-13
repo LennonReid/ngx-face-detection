@@ -9,7 +9,7 @@ export interface IHumanConfig {
 
 // todo: wasmPlatformFetch not exist in Config,later remove any
 export const getConfig = (opts?: IHumanConfig): Config | any => {
-  const resourcesUrl = opts?.resourcesUrl ? opts?.resourcesUrl : 'ngx-face-detection/';
+  const resourcesUrl = opts?.resourcesUrl ? opts?.resourcesUrl : '/ngx-face-detection/';
   const live = opts?.live ? opts?.live : false;
   const iris = opts?.iris ? opts?.iris : false;
   const debug = opts?.debug ? opts?.debug : false;
