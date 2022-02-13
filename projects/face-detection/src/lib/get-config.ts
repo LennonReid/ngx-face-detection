@@ -15,7 +15,7 @@ export const getConfig = (opts?: IHumanConfig): Config | any => {
   const debug = opts?.debug ? opts?.debug : false;
   return {
     backend: 'webgl',
-    modelBasePath: '/ngx-face-detection/',
+    modelBasePath: resourcesUrl,
     cacheModels: true,
     wasmPath: 'human/assets/',
     wasmPlatformFetch: false,
