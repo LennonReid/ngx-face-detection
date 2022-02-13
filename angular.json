@@ -46,11 +46,6 @@
                 "glob": "*.wasm",
                 "input": "node_modules/@vladmandic/human/assets",
                 "output": "/human/assets"
-              },
-              {
-                "glob": "**/*",
-                "input": "public",
-                "output": "public"
               }
             ],
             "styles": [
