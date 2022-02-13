@@ -40,12 +40,17 @@
               {
                 "glob": "*.{bin,json}",
                 "input": "node_modules/@vladmandic/human/models",
-                "output": "/models"
+                "output": "/human/models"
               },
               {
                 "glob": "*.wasm",
                 "input": "node_modules/@vladmandic/human/assets",
-                "output": "/assets"
+                "output": "/human/assets"
+              },
+              {
+                "glob": "**/*",
+                "input": "public",
+                "output": "public"
               }
             ],
             "styles": [
