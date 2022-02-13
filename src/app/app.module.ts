@@ -14,7 +14,7 @@ import { FaceDetectionModule } from "../../projects/face-detection/src/lib/face-
     // ----------------------------------------------------------------------------- [ local lib ]
     FaceDetectionModule.forRoot({
       script: 'human/human.js',
-      resourcesUrl: '/ngx-face-detection/',
+      resourcesUrl: './',
       production: environment.production
     })
   ],
