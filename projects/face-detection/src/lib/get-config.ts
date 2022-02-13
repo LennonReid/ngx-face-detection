@@ -15,7 +15,7 @@ export const getConfig = (opts?: IHumanConfig): Config | any => {
   const debug = opts?.debug ? opts?.debug : false;
   return {
     backend: 'webgl',
-    modelBasePath: resourcesUrl,
+    modelBasePath: '/ngx-face-detection/',
     cacheModels: true,
     wasmPath: 'human/assets/',
     wasmPlatformFetch: false,
@@ -52,7 +52,7 @@ export const getConfig = (opts?: IHumanConfig): Config | any => {
     face: {
       enabled: true,
       detector: {
-        modelPath: '/ngx-face-detection/human/models/blazeface.json',
+        modelPath: 'human/models/blazeface.json',
         rotation: true,
         maxDetected: 1,
         skipFrames: 99,
