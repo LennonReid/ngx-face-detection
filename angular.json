@@ -35,17 +35,17 @@
               {
                 "glob": "human.{js,js.map}",
                 "input": "node_modules/@vladmandic/human/dist",
-                "output": "./human"
+                "output": "/human"
               },
               {
                 "glob": "*.{bin,json}",
                 "input": "node_modules/@vladmandic/human/models",
-                "output": "./human/models"
+                "output": "/models"
               },
               {
                 "glob": "*.wasm",
                 "input": "node_modules/@vladmandic/human/assets",
-                "output": "./human/assets"
+                "output": "/assets"
               }
             ],
             "styles": [
