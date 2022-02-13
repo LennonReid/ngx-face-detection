@@ -1,4 +1,4 @@
-import { Config } from '@vladmandic/human';
+import {Config} from '@vladmandic/human';
 
 export interface IHumanConfig {
   resourcesUrl?: string;
@@ -17,7 +17,7 @@ export const getConfig = (opts?: IHumanConfig): Config | any => {
     backend: 'webgl',
     modelBasePath: resourcesUrl,
     cacheModels: true,
-    wasmPath: 'human/assets/',
+    wasmPath: resourcesUrl + resourcesUrl + 'human/assets/',
     wasmPlatformFetch: false,
     debug: debug,
     async: true,
@@ -52,7 +52,7 @@ export const getConfig = (opts?: IHumanConfig): Config | any => {
     face: {
       enabled: true,
       detector: {
-        modelPath: 'human/models/blazeface.json',
+        modelPath: resourcesUrl + 'human/models/blazeface.json',
         rotation: true,
         maxDetected: 1,
         skipFrames: 99,
@@ -64,22 +64,22 @@ export const getConfig = (opts?: IHumanConfig): Config | any => {
       },
       mesh: {
         enabled: live,
-        modelPath: 'human/models/facemesh.json',
+        modelPath: resourcesUrl + 'human/models/facemesh.json',
       },
       iris: {
         enabled: live && iris,
-        modelPath: `human/models/iris.json`
+        modelPath: resourcesUrl + `human/models/iris.json`
       },
       emotion: {
         enabled: false,
         minConfidence: 0.1,
         skipFrames: 99,
         skipTime: 1500,
-        modelPath: `human/models/emotion.json` // can be 'mini', 'larg'
+        modelPath: resourcesUrl + `human/models/emotion.json` // can be 'mini', 'larg'
       },
       description: {
         enabled: true,
-        modelPath: `human/models/faceres.json`,
+        modelPath: resourcesUrl + `human/models/faceres.json`,
         skipFrames: 99,
         skipTime: 3e3,
         minConfidence: 0.1
@@ -88,19 +88,19 @@ export const getConfig = (opts?: IHumanConfig): Config | any => {
         enabled: false,
         skipFrames: 99,
         skipTime: 4e3,
-        modelPath: `human/models/antispoof.json`
+        modelPath: resourcesUrl + `human/models/antispoof.json`
       },
       liveness: {
         enabled: false,
         skipFrames: 99,
         skipTime: 4e3,
-        modelPath: `human/models/liveness.json`
+        modelPath: resourcesUrl + `human/models/liveness.json`
       }
     },
 
     body: {
       enabled: false,
-      modelPath: `human/models/movenet-lightning.json`,
+      modelPath: resourcesUrl + `human/models/movenet-lightning.json`,
       maxDetected: -1,
       minConfidence: 0.3,
       skipFrames: 1,
@@ -124,16 +124,16 @@ export const getConfig = (opts?: IHumanConfig): Config | any => {
       // should be set to the minimum number for performance
       landmarks: true, // detect hand landmarks or just hand boundary box
       detector: {
-        modelPath: `human/models/handtrack.json`
+        modelPath: resourcesUrl + `human/models/handtrack.json`
       },
       skeleton: {
-        modelPath: `human/models/handlandmark-full.json`
+        modelPath: resourcesUrl + `human/models/handlandmark-full.json`
       }
     },
 
     object: {
       enabled: false,
-      modelPath: 'human/models/mb3-centernet.json',
+      modelPath: resourcesUrl + 'human/models/mb3-centernet.json',
       minConfidence: 0.2,
       iouThreshold: 0.4,
       maxDetected: 10,
@@ -142,7 +142,7 @@ export const getConfig = (opts?: IHumanConfig): Config | any => {
     },
     segmentation: {
       enabled: false,
-      modelPath: 'human/models/selfie.json',
+      modelPath: resourcesUrl + 'human/models/selfie.json',
       blur: 8
     }
   }
