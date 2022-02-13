@@ -1,6 +1,5 @@
 <div class="dev">
   <button (click)="preload()">preload sources</button>
-
   <button (click)="takePhoto()">take a photo</button>
   <button (click)="takeBetterPhoto()">take a better photo</button>
   <button (click)="livenessArrayTakeBetterPhoto('facingCamera')">facingCamera</button>
@@ -13,8 +12,10 @@
   <button (click)="livenessArrayTakeBetterPhoto('shake')">shake</button>
 
   <div class="images">
-    <img [src]="photo" />
-    <img [src]="rectPhoto" />
+    <img [src]="photo"/>
+    <img [src]="rectPhoto"/>
   </div>
 </div>
-<ngx-face-detection (noAvailableStream)="noAvailableStream($event)" [stream]="stream" [bioassay]="live" [iris]="iris" [debug]="debug"></ngx-face-detection>
+<ngx-face-detection (noAvailableStream)="noAvailableStream($event)" [stream]="stream" [bioassay]="live" [iris]="iris"
+                    [debug]="debug"></ngx-face-detection>
+<app-loading *ngIf="loading"></app-loading>

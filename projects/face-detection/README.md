@@ -3,6 +3,8 @@
 A library for face detection based on [vladmandic/human](https://github.com/vladmandic/human) and TensorFlow/JS
 
 [repo](https://github.com/lenonMax/ngx-face-detection)
+
+[demo](https://lenonmax.github.io/ngx-face-detection)
 ```
 npm i ngx-face-detection @vladmandic/human ismobilejs mathjs
 ```
@@ -42,124 +44,124 @@ examples:
 
 ```json
 
-    "ngx-face-detection": {
-      "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        },
-        "@schematics/angular:application": {
-          "strict": true
-        }
-      },
-      "root": "",
-      "sourceRoot": "src",
-      "prefix": "app",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:browser",
-          "options": {
-            "outputPath": "dist/ngx-face-detection",
-            "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "tsconfig.app.json",
-            "inlineStyleLanguage": "scss",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets",
-              {
-                "glob": "human.{js,js.map}",
-                "input": "node_modules/@vladmandic/human/dist",
-                "output": "./human"
-              },
-              {
-                "glob": "*.{bin,json}",
-                "input": "node_modules/@vladmandic/human/models",
-                "output": "./human/models"
-              },
-              {
-                "glob": "*.wasm",
-                "input": "node_modules/@vladmandic/human/assets",
-                "output": "./human/assets"
-              }
-            ],
-            "styles": [
-              "src/styles.scss"
-            ],
-            "scripts": []
-          },
-          "configurations": {
-            "production": {
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
-                }
-              ],
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ],
-              "outputHashing": "all"
-            },
-            "development": {
-              "buildOptimizer": false,
-              "optimization": false,
-              "vendorChunk": true,
-              "extractLicenses": false,
-              "sourceMap": true,
-              "namedChunks": true
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "configurations": {
-            "production": {
-              "browserTarget": "ngx-face-detection:build:production"
-            },
-            "development": {
-              "browserTarget": "ngx-face-detection:build:development"
-            }
-          },
-          "defaultConfiguration": "development"
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "ngx-face-detection:build"
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "src/test.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "tsconfig.spec.json",
-            "karmaConfig": "karma.conf.js",
-            "inlineStyleLanguage": "scss",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.scss"
-            ],
-            "scripts": []
-          }
-        }
-      }
-    }
+"ngx-face-detection": {
+"projectType": "application",
+"schematics": {
+"@schematics/angular:component": {
+"style": "scss"
+},
+"@schematics/angular:application": {
+"strict": true
+}
+},
+"root": "",
+"sourceRoot": "src",
+"prefix": "app",
+"architect": {
+"build": {
+"builder": "@angular-devkit/build-angular:browser",
+"options": {
+"outputPath": "dist/ngx-face-detection",
+"index": "src/index.html",
+"main": "src/main.ts",
+"polyfills": "src/polyfills.ts",
+"tsConfig": "tsconfig.app.json",
+"inlineStyleLanguage": "scss",
+"assets": [
+"src/favicon.ico",
+"src/assets",
+{
+"glob": "human.{js,js.map}",
+"input": "node_modules/@vladmandic/human/dist",
+"output": "./human"
+},
+{
+"glob": "*.{bin,json}",
+"input": "node_modules/@vladmandic/human/models",
+"output": "./human/models"
+},
+{
+"glob": "*.wasm",
+"input": "node_modules/@vladmandic/human/assets",
+"output": "./human/assets"
+}
+],
+"styles": [
+"src/styles.scss"
+],
+"scripts": []
+},
+"configurations": {
+"production": {
+"budgets": [
+{
+"type": "initial",
+"maximumWarning": "500kb",
+"maximumError": "1mb"
+},
+{
+"type": "anyComponentStyle",
+"maximumWarning": "2kb",
+"maximumError": "4kb"
+}
+],
+"fileReplacements": [
+{
+"replace": "src/environments/environment.ts",
+"with": "src/environments/environment.prod.ts"
+}
+],
+"outputHashing": "all"
+},
+"development": {
+"buildOptimizer": false,
+"optimization": false,
+"vendorChunk": true,
+"extractLicenses": false,
+"sourceMap": true,
+"namedChunks": true
+}
+},
+"defaultConfiguration": "production"
+},
+"serve": {
+"builder": "@angular-devkit/build-angular:dev-server",
+"configurations": {
+"production": {
+"browserTarget": "ngx-face-detection:build:production"
+},
+"development": {
+"browserTarget": "ngx-face-detection:build:development"
+}
+},
+"defaultConfiguration": "development"
+},
+"extract-i18n": {
+"builder": "@angular-devkit/build-angular:extract-i18n",
+"options": {
+"browserTarget": "ngx-face-detection:build"
+}
+},
+"test": {
+"builder": "@angular-devkit/build-angular:karma",
+"options": {
+"main": "src/test.ts",
+"polyfills": "src/polyfills.ts",
+"tsConfig": "tsconfig.spec.json",
+"karmaConfig": "karma.conf.js",
+"inlineStyleLanguage": "scss",
+"assets": [
+"src/favicon.ico",
+"src/assets"
+],
+"styles": [
+"src/styles.scss"
+],
+"scripts": []
+}
+}
+}
+}
 ```
 
 These variables are used when the module is loaded.
@@ -175,17 +177,20 @@ import { BrowserModule } from '@angular/platform-browser';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FaceDetectionModule } from "ngx-face-detection";
+import { FaceDetectionModule } from "../../projects/face-detection/src/lib/face-detection.module";
+import {FaceDetectionPageModule} from "./face-detection/face-detection.module";
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FaceDetectionPageModule,
     // ----------------------------------------------------------------------------- [ local lib ]
     FaceDetectionModule.forRoot({
       script: 'human/human.js',
-      resourcesUrl: '',
+      // baseHref
+      resourcesUrl: '/ngx-face-detection/',
       production: environment.production
     })
   ],
@@ -195,7 +200,6 @@ import { FaceDetectionModule } from "ngx-face-detection";
 export class AppModule {}
 
 ```
-
 ### 3. in required html file
 
 examples:
@@ -209,11 +213,15 @@ examples:
 examples:
 
 ```typescript
-import isMobile from 'ismobilejs';
-import { Subscription } from 'rxjs';
+import {Subscription} from 'rxjs';
 
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import {FaceDetectionComponent, FaceDetectionService} from "ngx-face-detection";
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {
+  FaceDetectionComponent,
+  FaceDetectionService,
+  isMobile,
+  getUserMedia
+} from "../../../projects/face-detection/src/public-api";
 
 const img = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
 
@@ -222,7 +230,8 @@ const img = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICT
   templateUrl: './face-detection.page.html',
   styleUrls: ['./face-detection.page.scss']
 })
-export class FaceDetectionPage implements OnInit {
+export class FaceDetectionPage implements OnInit, AfterViewInit {
+  loading = true;
   title = 'dev-face-camera';
   live = true;
   iris = true;
@@ -231,22 +240,46 @@ export class FaceDetectionPage implements OnInit {
   photo: string = img;
   rectPhoto: string = img;
   stream!: MediaStream;
+  public isMobile = isMobile(window);
+
+  videoMaxWidth = 1440;
+  videoMaxHeight = 720;
+
+  get width() {
+    return this.el.nativeElement.clientWidth || document.body.clientWidth;
+  }
+
+  get height() {
+    return this.el.nativeElement.clientHeight || document.body.clientHeight;
+  }
 
   // a subscription for screenshot of videos
   lastfaceDetectionSub!: Subscription;
-  @ViewChild(FaceDetectionComponent, { static: true }) faceDetection!: FaceDetectionComponent;
+  @ViewChild(FaceDetectionComponent, {static: true}) faceDetection!: FaceDetectionComponent;
   @ViewChild('rectPhoto') rectPhotoEle!: ElementRef<HTMLImageElement>;
 
   constructor(
-    private el: ElementRef,
+    private el: ElementRef<HTMLElement>,
     private faceDetectionService: FaceDetectionService
-  ) {}
+  ) {
+  }
+
+  getCamera() {
+    try {
+      const {width, height, videoMaxWidth, videoMaxHeight, isMobile} = this;
+      getUserMedia(width, height, videoMaxWidth, videoMaxHeight, isMobile).then(async media => {
+        this.stream = media;
+      });
+    } catch (err) {
+    }
+  }
 
   ngOnInit(): void {
-    console.log(this.el.nativeElement.clientLeft);
-    console.log(this.el.nativeElement.clientWidth);
+
+    this.getCamera();
     this.faceDetection.beginDetect$.subscribe(
       () => {
+        this.loading = false;
         console.log('detection started');
       },
       error => {
@@ -256,23 +289,27 @@ export class FaceDetectionPage implements OnInit {
     );
   }
 
+  ngAfterViewInit() {
+    this.takePhoto();
+  }
+
   preload() {
-    this.faceDetectionService.preload({ live: this.live, iris: this.iris, debug: this.debug });
+    this.faceDetectionService.preload({live: this.live, iris: this.iris, debug: this.debug});
   }
 
   get rect() {
-    return isMobile().any
+    return isMobile(window)
       ? {
-          x: 0,
-          y: 0,
-          width: this.el.nativeElement.clientWidth,
-          height: this.el.nativeElement.clientHeight
-        }
+        x: 0,
+        y: 0,
+        width: this.el.nativeElement.clientWidth,
+        height: this.el.nativeElement.clientHeight
+      }
       : {
-          x: this.el.nativeElement.clientWidth / 4,
-          y: 0,
-          width: this.el.nativeElement.clientWidth / 2,
-          height: this.el.nativeElement.clientHeight
+        x: this.el.nativeElement.clientWidth / 4,
+        y: 0,
+        width: this.el.nativeElement.clientWidth / 2,
+        height: this.el.nativeElement.clientHeight
       };
   }
 
@@ -284,7 +321,7 @@ export class FaceDetectionPage implements OnInit {
     this.rectPhoto = img;
     console.log(this.rect);
     this.lastfaceDetectionSub = this.faceDetection.takePhoto(600, 800, this.rect, true).subscribe(result => {
-      const { photo, rectPhoto } = result;
+      const {photo, rectPhoto} = result;
       this.photo = photo || img;
       this.rectPhoto = rectPhoto || img;
     });
@@ -297,7 +334,7 @@ export class FaceDetectionPage implements OnInit {
     this.photo = img;
     this.rectPhoto = img;
     this.lastfaceDetectionSub = this.faceDetection.takeBetterPhoto(600, 800, this.rect, true).subscribe(d => {
-      const { photo, rectPhoto } = d;
+      const {photo, rectPhoto} = d;
       this.photo = photo || img;
       this.rectPhoto = rectPhoto || img;
       console.log('find a photo can be used');
@@ -319,8 +356,10 @@ export class FaceDetectionPage implements OnInit {
       this.lastfaceDetectionSub.unsubscribe();
     }
     this.lastfaceDetectionSub = this.faceDetection.livenessArray(['facingLeft', 'facingRight'], this.rect).subscribe(
-      () => {},
-      () => {},
+      () => {
+      },
+      () => {
+      },
       () => {
         console.log('successful liveness detection');
       }
@@ -342,7 +381,7 @@ export class FaceDetectionPage implements OnInit {
         true
       )
       .subscribe(d => {
-        const { photo, rectPhoto } = d;
+        const {photo, rectPhoto} = d;
         this.photo = photo || img;
         this.rectPhoto = rectPhoto || img;
         console.log('successful liveness detection');
@@ -362,33 +401,8 @@ export class FaceDetectionPage implements OnInit {
    */
   noAvailableStream(res: boolean) {
     //
+    console.log('no camera available')
   }
 }
-
-```
-
-### 4. in required module file
-examples:
-
-```typescript
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import {FaceDetectionModule} from "ngx-face-detection";
-import {FaceDetectionPage} from "./face-detection.page";
-
-
-const routes: Routes = [
-  {
-    path: '',
-    component: FaceDetectionPage
-  }
-];
-
-@NgModule({
-  declarations: [FaceDetectionPage],
-  imports: [FaceDetectionModule, RouterModule.forChild(routes)],
-  providers: []
-})
-export class FaceDetectionPageModule {}
 
 ```
