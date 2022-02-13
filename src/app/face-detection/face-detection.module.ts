@@ -4,17 +4,10 @@ import {FaceDetectionModule} from "../../../projects/face-detection/src/lib/face
 import {FaceDetectionPage} from "./face-detection.page";
 
 
-const routes: Routes = [
-  {
-    path: '',
-    component: FaceDetectionPage
-  },
-  { path: '**', redirectTo: '/ngx-face-detection', pathMatch: 'full' }
-];
-
 @NgModule({
   declarations: [FaceDetectionPage],
-  imports: [FaceDetectionModule, RouterModule.forChild(routes)],
-  providers: []
+  imports: [FaceDetectionModule],
+  providers: [],
+  exports: [FaceDetectionPage]
 })
 export class FaceDetectionPageModule {}
