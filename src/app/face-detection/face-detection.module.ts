@@ -8,7 +8,8 @@ const routes: Routes = [
   {
     path: '',
     component: FaceDetectionPage
-  }
+  },
+  { path: '**', redirectTo: '/', pathMatch: 'full' }
 ];
 
 @NgModule({
