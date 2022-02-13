@@ -7,7 +7,7 @@ const routes: Routes = [
     path: 'face-detection',
     loadChildren: () => import('./face-detection/face-detection.module').then(_ => _.FaceDetectionPageModule)
   },
-  { path: '**', redirectTo: 'face-detection', pathMatch: 'full' }
+  { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 
 @NgModule({
