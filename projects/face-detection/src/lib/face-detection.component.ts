@@ -1,8 +1,8 @@
 import isMobileFn from 'ismobilejs';
-import { BehaviorSubject, combineLatest, Observable, of, Subject } from 'rxjs';
-import { filter, map, share, switchMap, take, takeUntil, tap } from 'rxjs/operators';
+import {BehaviorSubject, combineLatest, Observable, of, Subject} from 'rxjs';
+import {filter, map, share, switchMap, take, takeUntil, tap} from 'rxjs/operators';
 
-import { DOCUMENT, isPlatformBrowser } from '@angular/common';
+import {DOCUMENT, isPlatformBrowser} from '@angular/common';
 import {
   AfterViewInit,
   Component,
@@ -20,7 +20,7 @@ import {
   ViewChild
 } from '@angular/core';
 
-import { Config } from '@vladmandic/human';
+import {Config} from '@vladmandic/human';
 import {
   FaceRect,
   IFaceDetectionOptions,
@@ -28,17 +28,17 @@ import {
   LivenessActions,
   NGX_FACE_DETECTION
 } from './face-detection.interface';
-import { FaceDetectionService } from './face-detection.service';
-import { getBetterPhoto } from './get-better-photo';
-import { getConfig } from './get-config';
-import { getAvailableVideoInputs } from './getAvailableVideoInputs';
-import { createHuman, getNeedVideoWidth, IHuman } from './human-helper';
-import { IHumanFaceResult, IHumanResult } from './human.interface';
-import { hasLivenessAction, variance } from './liveness.util';
-import { loadScript } from './load-script';
-import { mapFaceResult } from './map-face-result';
-import { takefacePhoto, takeVideoPhoto } from './take-photo';
-import { groupFace } from './takephoto.util';
+import {FaceDetectionService} from './face-detection.service';
+import {getBetterPhoto} from './get-better-photo';
+import {getConfig} from './get-config';
+import {getAvailableVideoInputs} from './getAvailableVideoInputs';
+import {createHuman, getNeedVideoWidth, IHuman} from './human-helper';
+import {IHumanFaceResult, IHumanResult} from './human.interface';
+import {hasLivenessAction, variance} from './liveness.util';
+import {loadScript} from './load-script';
+import {mapFaceResult} from './map-face-result';
+import {takefacePhoto, takeVideoPhoto} from './take-photo';
+import {groupFace} from './takephoto.util';
 
 type ImageSizeType = 'original' | 'compressed';
 type ImageSourceType = 'album' | 'camera';
@@ -94,7 +94,7 @@ export class FaceDetectionComponent implements OnInit, AfterViewInit, OnChanges,
   // The maximum height of the video
   @Input() videoMaxHeight = 720;
 
-  @ViewChild('videoFaceDetect', { static: true }) videoEle!: ElementRef<HTMLVideoElement>;
+  @ViewChild('videoFaceDetect', {static: true}) videoEle!: ElementRef<HTMLVideoElement>;
   @ViewChild('devCanvas') devCanvasEle!: ElementRef<HTMLCanvasElement>;
 
   // there is still no available stream when request to open camera again
@@ -162,18 +162,14 @@ export class FaceDetectionComponent implements OnInit, AfterViewInit, OnChanges,
           const face = result.face[0];
           this._info =
             (face.gesture || []).join(',') +
-            '\nbackend: ' +
-            result.performance.backend +
-            '\nload: ' +
-            result.performance.load +
-            '\nimage: ' +
-            result.performance.image +
+            '\ninitBackend: ' +
+            result.performance.initBackend +
+            '\nloadModels: ' +
+            result.performance.loadModels +
             '\ntotal: ' +
             result.performance.total +
             '\nfacebox: ' +
-            face.box[2] +
-            '\nconfidence: ' +
-            face.confidence;
+            face.box[2]
         }
       }
       timer = setTimeout(loop, this.delay);
@@ -292,7 +288,7 @@ export class FaceDetectionComponent implements OnInit, AfterViewInit, OnChanges,
             if (photo) {
               if (this.isMobile) {
                 // send result
-                subscribe.next({ photo, rectPhoto, result });
+                subscribe.next({photo, rectPhoto, result});
                 // complete the observale when there have a sent image
                 if (photo) {
                   sub.unsubscribe();
@@ -314,7 +310,7 @@ export class FaceDetectionComponent implements OnInit, AfterViewInit, OnChanges,
                     );
                     if (finalResult && finalResult.face && finalResult.face.length > 0) {
                       // send result
-                      subscribe.next({ photo, rectPhoto, result });
+                      subscribe.next({photo, rectPhoto, result});
                       // complete the observale when there have a sent image
                       if (photo) {
                         sub.unsubscribe();
@@ -364,7 +360,7 @@ export class FaceDetectionComponent implements OnInit, AfterViewInit, OnChanges,
           if (withinRect.length > 0) {
             const faceBox = withinRect[0].box;
             // Determine if faceBox is better than the current one
-            const { level, isBetter } = getBetterPhoto(currentBetterLevel, withinRect[0], currnetFaceData);
+            const {level, isBetter} = getBetterPhoto(currentBetterLevel, withinRect[0], currnetFaceData);
             if (isBetter) {
               // Update level and data
               currentBetterLevel = level;
@@ -380,7 +376,7 @@ export class FaceDetectionComponent implements OnInit, AfterViewInit, OnChanges,
               if (videoPhoto) {
                 rectPhoto = takeVideoPhoto(this.videoEle.nativeElement, this.canvasEle);
               }
-              subscribe.next({ photo, rectPhoto, result });
+              subscribe.next({photo, rectPhoto, result});
             }
           }
         });
@@ -441,7 +437,7 @@ export class FaceDetectionComponent implements OnInit, AfterViewInit, OnChanges,
         const act = actions[i];
         ob = ob.pipe(
           switchMap(() => this.liveness(act, faceRect)),
-          tap(() => subscribe.next({ act: act, num: i }))
+          tap(() => subscribe.next({act: act, num: i}))
         );
       }
       const sub = ob.subscribe(() => subscribe.complete());
@@ -471,10 +467,10 @@ export class FaceDetectionComponent implements OnInit, AfterViewInit, OnChanges,
         this.takeBetterPhoto(width, height, faceRect, videoPhoto)
       ]).subscribe(([action, result]) => {
         if (action.num >= actions.length - 1) {
-          subscribe.next({ step: action.num, action: action.act, photo: result.photo, rectPhoto: result.rectPhoto });
+          subscribe.next({step: action.num, action: action.act, photo: result.photo, rectPhoto: result.rectPhoto});
           subscribe.complete();
         }
-        subscribe.next({ step: action.num, action: action.act });
+        subscribe.next({step: action.num, action: action.act});
       });
       return () => sub && sub.unsubscribe();
     });
@@ -486,7 +482,7 @@ export class FaceDetectionComponent implements OnInit, AfterViewInit, OnChanges,
    * @param rect the determinate area
    */
   detectWithRect(rect?: FaceRect): Observable<IHumanResult> {
-    const { x, y, width, height } = rect || {
+    const {x, y, width, height} = rect || {
       x: 0,
       y: 0,
       width: Number.MAX_SAFE_INTEGER,
@@ -577,7 +573,7 @@ export class FaceDetectionComponent implements OnInit, AfterViewInit, OnChanges,
           }
 
           // Assign current face recognition information
-          return { ...face, withinRect };
+          return {...face, withinRect};
         });
         return result;
       })
@@ -678,7 +674,7 @@ export class FaceDetectionComponent implements OnInit, AfterViewInit, OnChanges,
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    const { stream, iris, bioassay } = changes;
+    const {stream, iris, bioassay} = changes;
     if (stream?.currentValue) {
       if (this.stream && this.stream.active) {
         this.startCamera();

@@ -57,5 +57,13 @@ export interface IHumanResult {
   face: IHumanFaceResult[];
   gesture: IFaceGesture[];
   hand: any[];
-  performance: { backend: number; load: number; image: number; total: number };
+  performance: {
+    cacheCheck: number;
+    cachedFrames: number;
+    initBackend: number;
+    inputProcess: number;
+    loadModels: number;
+    total: number;
+    totalFrames: number
+  };
 }
