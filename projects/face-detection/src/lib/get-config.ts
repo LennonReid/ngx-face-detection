@@ -9,7 +9,7 @@ export interface IHumanConfig {
 
 // todo: wasmPlatformFetch not exist in Config,later remove any
 export const getConfig = (opts?: IHumanConfig): Config | any => {
-  const resourcesUrl = opts?.resourcesUrl ? opts?.resourcesUrl : './';
+  const resourcesUrl = opts?.resourcesUrl ? opts?.resourcesUrl : '/';
   const live = opts?.live ? opts?.live : false;
   const iris = opts?.iris ? opts?.iris : false;
   const debug = opts?.debug ? opts?.debug : false;
@@ -52,7 +52,7 @@ export const getConfig = (opts?: IHumanConfig): Config | any => {
     face: {
       enabled: true,
       detector: {
-        modelPath: 'human/models/blazeface.json',
+        modelPath: '/ngx-face-detection/human/models/blazeface.json',
         rotation: true,
         maxDetected: 1,
         skipFrames: 99,
@@ -68,18 +68,18 @@ export const getConfig = (opts?: IHumanConfig): Config | any => {
       },
       iris: {
         enabled: live && iris,
-        modelPath: `human/models/iris.json`
+        modelPath: 'human/models/iris.json'
       },
       emotion: {
         enabled: false,
         minConfidence: 0.1,
         skipFrames: 99,
         skipTime: 1500,
-        modelPath: `human/models/emotion.json` // can be 'mini', 'larg'
+        modelPath: 'human/models/emotion.json' // can be 'mini', 'larg'
       },
       description: {
         enabled: true,
-        modelPath: `human/models/faceres.json`,
+        modelPath: 'human/models/faceres.json',
         skipFrames: 99,
         skipTime: 3e3,
         minConfidence: 0.1
@@ -88,19 +88,19 @@ export const getConfig = (opts?: IHumanConfig): Config | any => {
         enabled: false,
         skipFrames: 99,
         skipTime: 4e3,
-        modelPath: `human/models/antispoof.json`
+        modelPath: 'human/models/antispoof.json'
       },
       liveness: {
         enabled: false,
         skipFrames: 99,
         skipTime: 4e3,
-        modelPath: `human/models/liveness.json`
+        modelPath: 'human/models/liveness.json'
       }
     },
 
     body: {
       enabled: false,
-      modelPath: `human/models/movenet-lightning.json`,
+      modelPath: 'human/models/movenet-lightning.json',
       maxDetected: -1,
       minConfidence: 0.3,
       skipFrames: 1,
@@ -124,10 +124,10 @@ export const getConfig = (opts?: IHumanConfig): Config | any => {
       // should be set to the minimum number for performance
       landmarks: true, // detect hand landmarks or just hand boundary box
       detector: {
-        modelPath: `human/models/handtrack.json`
+        modelPath: 'human/models/handtrack.json'
       },
       skeleton: {
-        modelPath: `human/models/handlandmark-full.json`
+        modelPath: 'human/models/handlandmark-full.json'
       }
     },
 
