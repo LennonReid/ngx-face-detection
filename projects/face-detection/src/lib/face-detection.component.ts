@@ -119,8 +119,8 @@ export class FaceDetectionComponent implements OnInit, AfterViewInit, OnChanges,
       if (unsubscribed) {
         return;
       }
-      if (!this.FaceDetectionService.loaded) {
-        await this.FaceDetectionService.preload({
+      if (!this.faceDetectionService.loaded) {
+        await this.faceDetectionService.preload({
           live: this.bioassay,
           iris: this.iris,
           debug: this.debug
@@ -187,7 +187,7 @@ export class FaceDetectionComponent implements OnInit, AfterViewInit, OnChanges,
     @Inject(PLATFORM_ID) private platformId: any,
     @Inject(DOCUMENT) document: any,
     @Inject(NGX_FACE_DETECTION) private options: IFaceDetectionOptions,
-    private FaceDetectionService: FaceDetectionService
+    private faceDetectionService: FaceDetectionService
   ) {
     if (isPlatformBrowser(this.platformId)) {
       this.canvasEle = document.createElement('canvas');
@@ -591,7 +591,7 @@ export class FaceDetectionComponent implements OnInit, AfterViewInit, OnChanges,
           this.videoEle.nativeElement.srcObject = this.stream;
           this.play();
         }
-        if (this.FaceDetectionService.loaded) {
+        if (this.faceDetectionService.loaded) {
           subscribe.complete();
         }
       };
@@ -670,6 +670,8 @@ export class FaceDetectionComponent implements OnInit, AfterViewInit, OnChanges,
   }
 
   async ngAfterViewInit() {
+    // todo avoid error
+    // Uncaught (in promise) DOMException: The play() request was interrupted by a new load request. https://goo.gl/LdLk22
     this.startCamera();
   }
 

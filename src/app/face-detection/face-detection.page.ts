@@ -1,8 +1,12 @@
-import isMobile from 'ismobilejs';
-import { Subscription } from 'rxjs';
+import {Subscription} from 'rxjs';
 
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import {FaceDetectionComponent, FaceDetectionService} from "../../../projects/face-detection/src/public-api";
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {
+  FaceDetectionComponent,
+  FaceDetectionService,
+  isMobile,
+  getUserMedia
+} from "../../../projects/face-detection/src/public-api";
 
 const img = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
 
@@ -11,7 +15,8 @@ const img = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICT
   templateUrl: './face-detection.page.html',
   styleUrls: ['./face-detection.page.scss']
 })
-export class FaceDetectionPage implements OnInit {
+export class FaceDetectionPage implements OnInit, AfterViewInit {
+  loading = true;
   title = 'dev-face-camera';
   live = true;
   iris = true;
@@ -20,22 +25,46 @@ export class FaceDetectionPage implements OnInit {
   photo: string = img;
   rectPhoto: string = img;
   stream!: MediaStream;
+  public isMobile = isMobile(window);
+
+  videoMaxWidth = 1440;
+  videoMaxHeight = 720;
+
+  get width() {
+    return this.el.nativeElement.clientWidth || document.body.clientWidth;
+  }
+
+  get height() {
+    return this.el.nativeElement.clientHeight || document.body.clientHeight;
+  }
 
   // a subscription for screenshot of videos
   lastfaceDetectionSub!: Subscription;
-  @ViewChild(FaceDetectionComponent, { static: true }) faceDetection!: FaceDetectionComponent;
+  @ViewChild(FaceDetectionComponent, {static: true}) faceDetection!: FaceDetectionComponent;
   @ViewChild('rectPhoto') rectPhotoEle!: ElementRef<HTMLImageElement>;
 
   constructor(
-    private el: ElementRef,
+    private el: ElementRef<HTMLElement>,
     private faceDetectionService: FaceDetectionService
-  ) {}
+  ) {
+  }
+
+  getCamera() {
+    try {
+      const {width, height, videoMaxWidth, videoMaxHeight, isMobile} = this;
+      getUserMedia(width, height, videoMaxWidth, videoMaxHeight, isMobile).then(async media => {
+        this.stream = media;
+      });
+    } catch (err) {
+    }
+  }
 
   ngOnInit(): void {
-    console.log(this.el.nativeElement.clientLeft);
-    console.log(this.el.nativeElement.clientWidth);
+
+    this.getCamera();
     this.faceDetection.beginDetect$.subscribe(
       () => {
+        this.loading = false;
         console.log('detection started');
       },
       error => {
@@ -45,23 +74,27 @@ export class FaceDetectionPage implements OnInit {
     );
   }
 
+  ngAfterViewInit() {
+    this.takePhoto();
+  }
+
   preload() {
-    this.faceDetectionService.preload({ live: this.live, iris: this.iris, debug: this.debug });
+    this.faceDetectionService.preload({live: this.live, iris: this.iris, debug: this.debug});
   }
 
   get rect() {
-    return isMobile().any
+    return isMobile(window)
       ? {
-          x: 0,
-          y: 0,
-          width: this.el.nativeElement.clientWidth,
-          height: this.el.nativeElement.clientHeight
-        }
+        x: 0,
+        y: 0,
+        width: this.el.nativeElement.clientWidth,
+        height: this.el.nativeElement.clientHeight
+      }
       : {
-          x: this.el.nativeElement.clientWidth / 4,
-          y: 0,
-          width: this.el.nativeElement.clientWidth / 2,
-          height: this.el.nativeElement.clientHeight
+        x: this.el.nativeElement.clientWidth / 4,
+        y: 0,
+        width: this.el.nativeElement.clientWidth / 2,
+        height: this.el.nativeElement.clientHeight
       };
   }
 
@@ -73,7 +106,7 @@ export class FaceDetectionPage implements OnInit {
     this.rectPhoto = img;
     console.log(this.rect);
     this.lastfaceDetectionSub = this.faceDetection.takePhoto(600, 800, this.rect, true).subscribe(result => {
-      const { photo, rectPhoto } = result;
+      const {photo, rectPhoto} = result;
       this.photo = photo || img;
       this.rectPhoto = rectPhoto || img;
     });
@@ -86,7 +119,7 @@ export class FaceDetectionPage implements OnInit {
     this.photo = img;
     this.rectPhoto = img;
     this.lastfaceDetectionSub = this.faceDetection.takeBetterPhoto(600, 800, this.rect, true).subscribe(d => {
-      const { photo, rectPhoto } = d;
+      const {photo, rectPhoto} = d;
       this.photo = photo || img;
       this.rectPhoto = rectPhoto || img;
       console.log('find a photo can be used');
@@ -108,8 +141,10 @@ export class FaceDetectionPage implements OnInit {
       this.lastfaceDetectionSub.unsubscribe();
     }
     this.lastfaceDetectionSub = this.faceDetection.livenessArray(['facingLeft', 'facingRight'], this.rect).subscribe(
-      () => {},
-      () => {},
+      () => {
+      },
+      () => {
+      },
       () => {
         console.log('successful liveness detection');
       }
@@ -131,7 +166,7 @@ export class FaceDetectionPage implements OnInit {
         true
       )
       .subscribe(d => {
-        const { photo, rectPhoto } = d;
+        const {photo, rectPhoto} = d;
         this.photo = photo || img;
         this.rectPhoto = rectPhoto || img;
         console.log('successful liveness detection');
@@ -151,5 +186,6 @@ export class FaceDetectionPage implements OnInit {
    */
   noAvailableStream(res: boolean) {
     //
+    console.log('no camera available')
   }
 }
