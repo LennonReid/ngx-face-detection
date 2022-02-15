@@ -1,4 +1,4 @@
-# ngx-code-editor
+# ngx-face-detection
 
 A library for face detection based on [vladmandic/human](https://github.com/vladmandic/human) and TensorFlow/JS
 
