@@ -35,7 +35,7 @@ export const getBetterPhoto = (
   if (newLevel === currentBetterLevel) {
     // TODO: Calculate data scores to judge if it is better
   }
-  // level bigger is better
+  // level smaller is better
   else if (newLevel < currentBetterLevel) {
     level = newLevel;
     isBetter = true;
