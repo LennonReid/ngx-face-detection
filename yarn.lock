@@ -1564,10 +1564,10 @@
   dependencies:
     "@types/node" "*"
 
-"@vladmandic/human@^2.6.2":
-  version "2.6.2"
-  resolved "https://registry.yarnpkg.com/@vladmandic/human/-/human-2.6.2.tgz#d372e02361f4fd4769da38ffcbd0a9799eec8b79"
-  integrity sha512-z9yVG7Z1gd22Tz22mqeho3mLcCYT1z+STkVqJBeOexxjIL7XZ5ViAVrd0ywxpZMPtPco1Wg/qsnMicc+WIXmDw==
+"@vladmandic/human@^2.7.2":
+  version "2.7.2"
+  resolved "https://registry.npmjs.org/@vladmandic/human/-/human-2.7.2.tgz#e77768c3ee574ddc74cb0222ba1f741cb1869261"
+  integrity sha512-0ZTjNFh77CBaL71uOkSV/OJeTEO6FWuKjRtJ3ZEVVjbToW8vOB7ymCl1D2dLzNR7XaInE7uYPswhh+PMNXR7AQ==
 
 "@webassemblyjs/ast@1.11.1":
   version "1.11.1"
@@ -1689,6 +1689,11 @@
   dependencies:
     "@webassemblyjs/ast" "1.11.1"
     "@xtuc/long" "4.2.2"
+
+"@webgpu/types@^0.1.17":
+  version "0.1.17"
+  resolved "https://registry.npmjs.org/@webgpu/types/-/types-0.1.17.tgz#91e8ec9fd6a1e63945ef12bff11394949ea1a583"
+  integrity sha512-M8INbXsMdkWtVsSHRPEiTXHe0S4gxMhYA/Kz4pNoUF9IXd3PHMi6/2n8EAsqkAEdna+aeCm2RmscWV0hsmIf0Q==
 
 "@xtuc/ieee754@^1.2.0":
   version "1.2.0"
