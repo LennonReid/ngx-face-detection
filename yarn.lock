@@ -1564,10 +1564,10 @@
   dependencies:
     "@types/node" "*"
 
-"@vladmandic/human@^2.7.2":
-  version "2.7.2"
-  resolved "https://registry.npmjs.org/@vladmandic/human/-/human-2.7.2.tgz#e77768c3ee574ddc74cb0222ba1f741cb1869261"
-  integrity sha512-0ZTjNFh77CBaL71uOkSV/OJeTEO6FWuKjRtJ3ZEVVjbToW8vOB7ymCl1D2dLzNR7XaInE7uYPswhh+PMNXR7AQ==
+"@vladmandic/human@^3.0.5":
+  version "3.0.5"
+  resolved "https://registry.npmmirror.com/@vladmandic/human/-/human-3.0.5.tgz#d062e0d2e2f97a93f26a2f3ceecbe5bcc1498ad1"
+  integrity sha512-MSkwmOuX6/oYlhBz/XG5CVtkkjZ47LQkFL2YBCV1qXB5rZ2IM56NCVSpgsBCQQP1gCKw65T6iVT0LRNxBk6QNg==
 
 "@webassemblyjs/ast@1.11.1":
   version "1.11.1"
