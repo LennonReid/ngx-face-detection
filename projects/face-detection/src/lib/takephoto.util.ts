@@ -16,5 +16,5 @@ export const groupFace = (faces: IHumanResult[]) => {
 
 // Calculate matrix variance and 80 is ok
 export const handleFaces = (faces: number[][]): number => {
-  return std(faces);
+  return std(faces) as unknown as number;
 };

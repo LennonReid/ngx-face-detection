@@ -156,7 +156,6 @@
       }
     }
   },
-  "defaultProject": "ngx-face-detection",
   "cli": {
     "packageManager": "yarn"
   }
