@@ -1,0 +1,26 @@
+# Add files here to ignore them from prettier formatting
+
+tmp
+libs/*/build
+apps/*/build
+node_modules
+/coverage
+*.log
+!*.config.js
+*.d.ts
+
+dist/
+vendors/
+assets/**/*.js
+
+.coverage-report.json
+.workspace-branch-status.json
+modernizr.js
+decorate-angular-cli.js
+migrations.json
+/public
+
+**/.babelrc
+**/templates/**/*.yaml
+
+.angular
