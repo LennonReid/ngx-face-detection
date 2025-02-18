@@ -2,11 +2,14 @@
   "name": "ngx-face-detection",
   "version": "0.0.9",
   "peerDependencies": {
-    "@angular/common": "^13.2.0",
-    "@angular/core": "^13.2.0",
-    "@vladmandic/human": "^2.6.2",
+    "@angular/common": "~17.3.12",
+    "@angular/core": "~17.3.12",
+    "@vladmandic/human": "~3.3.5",
     "ismobilejs": "^1.1.1",
-    "mathjs": "^10.1.1"
+    "mathjs": "^14.2.1",
+    "long": "^5.3.1",
+    "@tensorflow/tfjs-converter": "^4.22.0",
+    "@tensorflow/tfjs-core": "^4.22.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"
