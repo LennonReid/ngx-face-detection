@@ -15,6 +15,33 @@ or
 yarn add ngx-face-detection @vladmandic/human ismobilejs mathjs
 ```
 
+## Additional Config
+
+### 1. Create `longtypes.d.ts` file in `src`
+And put this code on `longtypes.d.ts`:
+``` typescript
+import Long from 'long';
+
+declare module '@tensorflow/tfjs-core/dist/hash_util' {
+  export function hexToLong(hex: string): Long;
+  export function fingerPrint64(s: Uint8Array, len?: number): Long;
+}
+```
+
+### 2. Add new config on tsconfig.json
+``` typescript
+{
+  ...
+  "compilerOptions": {
+    ...
+    "types": ["@webgpu/types", "src/longtypes.d.ts"],
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true
+  },
+  ...
+}
+```
+
 ## get-started
 
 ### 1. Project. Json or angular.json of the required app
