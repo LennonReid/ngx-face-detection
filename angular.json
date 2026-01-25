@@ -87,10 +87,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "ngx-face-detection:build:production"
+              "buildTarget": "ngx-face-detection:build:production"
             },
             "development": {
-              "browserTarget": "ngx-face-detection:build:development"
+              "buildTarget": "ngx-face-detection:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -98,7 +98,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ngx-face-detection:build"
+            "buildTarget": "ngx-face-detection:build"
           }
         },
         "test": {

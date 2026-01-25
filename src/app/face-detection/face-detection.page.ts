@@ -1,19 +1,24 @@
 import {Subscription} from 'rxjs';
 
 import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {
   FaceDetectionComponent,
   FaceDetectionService,
   isMobile,
   getUserMedia
 } from "../../../projects/face-detection/src/public-api";
+import {FaceDetectionModule} from "../../../projects/face-detection/src/lib/face-detection.module";
+import {LoadingComponent} from "../loading/loading/loading.component";
 
 const img = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
 
 @Component({
   selector: 'app-face-detection-page',
+  standalone: true,
   templateUrl: './face-detection.page.html',
-  styleUrls: ['./face-detection.page.scss']
+  styleUrls: ['./face-detection.page.scss'],
+  imports: [CommonModule, FaceDetectionModule, LoadingComponent]
 })
 export class FaceDetectionPage implements OnInit, AfterViewInit {
   loading = true;
